@@ -11,10 +11,11 @@ class Teacher extends Model
 
     // Nome della tabella
     protected $table = 'professore';
+    protected $primaryKey = 'id_professore'; // La chiave primaria si chiama 'id_user' invece di 'id'
 
     // Colonne che possono essere assegnate in massa
     protected $fillable = [
-        'id_user',
+        'id_utente',
         'nome',
         'cognome',
         'materia',

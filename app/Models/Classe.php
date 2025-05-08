@@ -10,7 +10,8 @@ class Classe extends Model
     use HasFactory;
 
     // Nome della tabella
-    protected $table = 'classe';    
+    protected $table = 'classe'; 
+    protected $primaryKey = 'id_classe'; // La chiave primaria si chiama 'id_user' invece di 'id'   
 
     // Colonne che possono essere assegnate in massa
     protected $fillable = [

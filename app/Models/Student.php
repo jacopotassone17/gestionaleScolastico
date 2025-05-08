@@ -11,6 +11,7 @@ class Student extends Model
 
     // Nome della tabella
     protected $table = 'studente';
+    protected $primaryKey = 'id_studente'; // La chiave primaria si chiama 'id_user' invece di 'id'
 
     // Colonne che possono essere assegnate in massa
     protected $fillable = [
@@ -18,7 +19,7 @@ class Student extends Model
         'cognome',
         'classe',
         'id_notifica',
-        'id_user',
+        'id_utente',
     ];
 
     // Relazione con il modello Notifiche

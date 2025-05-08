@@ -11,6 +11,7 @@ class Notifiche extends Model
 
     // Nome della tabella
     protected $table = 'notifiche';
+    protected $primaryKey = 'id_notifica'; // La chiave primaria si chiama 'id_user' invece di 'id'
 
     // Colonne che possono essere assegnate in massa
     protected $fillable = [

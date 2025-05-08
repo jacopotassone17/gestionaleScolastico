@@ -21,14 +21,14 @@
             <tbody>
                 @foreach ($docenti as $docente)
                 <tr>
-                    <td class="border border-gray-300 px-4 py-2">{{ $docente->id }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ $docente->id_professore }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $docente->nome }} {{ $docente->cognome }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $docente->email }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $docente->materia }}</td>
                     <td class="border border-gray-300 px-4 py-2">
-                        <a href="{{ route('docenti.show', $docente->id) }}" class="text-green-600 hover:underline mr-2">Visualizza</a>
-                        <a href="{{ route('docenti.edit', $docente->id) }}" class="text-blue-600 hover:underline mr-2">Modifica</a>
-                        <form method="POST" action="{{ route('docenti.destroy', $docente->id) }}" class="inline" onsubmit="return confirm('Sei sicuro di voler eliminare questo docente?');">
+                        <a href="{{ route('docenti.show', $docente->id_professore) }}" class="text-green-600 hover:underline mr-2">Visualizza</a>
+                        <a href="{{ route('docenti.edit', $docente->id_professore) }}" class="text-blue-600 hover:underline mr-2">Modifica</a>
+                        <form method="POST" action="{{ route('docenti.destroy', $docente->id_professore) }}" class="inline" onsubmit="return confirm('Sei sicuro di voler eliminare questo docente?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="text-red-600 hover:underline">Elimina</button>

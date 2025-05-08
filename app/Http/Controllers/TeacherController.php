@@ -76,10 +76,10 @@ class TeacherController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_professore)
     {
         $request->validate([
-            'id_user' => 'required|exists:utente,id_user',
+            'id_professore' => 'required|exists:utente,id_professore',
             'nome' => 'required|string|max:45',
             'cognome' => 'required|string|max:45',
             'materia' => 'required|string|max:45',
@@ -88,10 +88,10 @@ class TeacherController extends Controller
             'password' => 'nullable|string|min:6',
         ]);
 
-        $docente = Teacher::findOrFail($id);
+        $docente = Teacher::findOrFail($id_professore);
 
         $docente->update([
-            'id_user' => $request->id_user,
+            'id_professore' => $request->id_professore,
             'nome' => $request->nome,
             'cognome' => $request->cognome,
             'materia' => $request->materia,
