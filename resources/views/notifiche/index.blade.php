@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Report')
+@section('title', 'Notifiche')
 
 @section('content')
-    <h2 class="text-2xl font-bold mb-4">Report</h2>
+    <h2 class="text-2xl font-bold mb-4">Notifiche</h2>
 
-    <form method="GET" action="{{ route('report.index') }}" class="mb-6">
+    <form method="GET" action="{{ route('Notifiche.index') }}" class="mb-6">
         <div class="flex flex-wrap gap-4 items-end">
 
             <div>
@@ -41,8 +41,8 @@
         </div>
     </form>
 
-    @if($report ?? false)
-        <h3 class="text-xl font-bold mb-4">Risultati Report</h3>
+    @if($Notifiche ?? false)
+        <h3 class="text-xl font-bold mb-4">Risultati Notifiche</h3>
 
         <div class="overflow-x-auto">
             <table class="w-full border-collapse border border-gray-300">
@@ -55,7 +55,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($report as $item)
+                    @forelse ($Notifiche as $item)
                         <tr>
                             <td class="border border-gray-300 px-4 py-2">{{ $item->studente->name ?? 'N/A' }}</td>
                             <td class="border border-gray-300 px-4 py-2">{{ $item->materia }}</td>

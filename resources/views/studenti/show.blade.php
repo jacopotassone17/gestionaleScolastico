@@ -16,10 +16,4 @@
         @endforeach
     </ul>
 
-    <h3 class="text-lg font-semibold mt-6">Presenze</h3>
-    <ul>
-        @foreach ($studente->presenze as $presenza)
-            <li>{{ $presenza->data }} - {{ $presenza->stato }}</li>
-        @endforeach
-    </ul>
 @endsection

@@ -10,11 +10,15 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $table = 'utente';
+    protected $primaryKey = 'id_user'; // La chiave primaria si chiama 'id_user' invece di 'id'
+
+
     protected $fillable = [
         'name',
         'email',
         'password',
-        'role', // aggiungilo se non c'è
+        'role', 
     ];
 
     protected $hidden = [

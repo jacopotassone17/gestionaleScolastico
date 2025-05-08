@@ -22,7 +22,7 @@
                 @foreach ($docenti as $docente)
                 <tr>
                     <td class="border border-gray-300 px-4 py-2">{{ $docente->id }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $docente->name }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ $docente->nome }} {{ $docente->cognome }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $docente->email }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $docente->materia }}</td>
                     <td class="border border-gray-300 px-4 py-2">
