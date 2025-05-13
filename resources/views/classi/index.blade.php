@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($classi as $classe)
+            @foreach ($classes as $classe)
                 <tr>
                     <td class="border px-4 py-2">{{ $classe->id }}</td>
                     <td class="border px-4 py-2">{{ $classe->nome }}</td>

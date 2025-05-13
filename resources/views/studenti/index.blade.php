@@ -1,15 +1,50 @@
+<!-- resources/views/studenti/index.blade.php -->
+
 @extends('layouts.app')
 
-@section('title', 'Studenti')
-
 @section('content')
-    <h2 class="text-xl font-bold mb-4">Elenco degli studenti</h2>
+    <div class="container">
+        <h1 class="my-4">Lista degli Studenti</h1>
 
-    <a href="{{ route('studenti.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Nuovo Studente</a>
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
 
-    <table class="w-full mt-4 border">
-        <thead>
-            <tr>
-                <th class="border px-4 py-2">
-::contentReference[oaicite:12]{index=12}
- 
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Classe</th>
+                    <th>Email</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($students as $student)
+                    <tr>
+                        <td>{{ $student->id_studente }}</td>
+                        <td>{{ $student->nome }}</td>
+                        <td>{{ $student->cognome }}</td>
+                        <td>{{ $student->classe }}</td> <!-- Mostra direttamente la classe -->
+                        <td>{{ $student->user->email ?? 'N/A' }}</td> <!-- Mostra email se esiste -->
+                        <td>
+                            <a href="{{ route('studenti.show', $student->id_studente) }}" class="btn btn-info">Visualizza</a>
+                            <a href="{{ route('studenti.edit', $student->id_studente) }}" class="btn btn-warning">Modifica</a>
+                            <form action="{{ route('studenti.destroy', $student->id_studente) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler eliminare questo studente?')">Elimina</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+        <a href="{{ route('studenti.create') }}" class="btn btn-primary mt-4">Aggiungi Studente</a>
+    </div>
+@endsection

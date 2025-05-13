@@ -13,7 +13,7 @@ class NotificheController extends Controller
     public function index()
     {
         // Recuperiamo tutte le notifiche
-        $notifiche = Notifiche::all();
+        $notifica = Notifiche::all();
 
         // Passiamo i dati alla vista per visualizzarli
         return view('notifiche.index', compact('notifiche'));
@@ -52,10 +52,10 @@ class NotificheController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($id_notifica)
     {
         // Recuperiamo una notifica specifica
-        $notifica = Notifiche::findOrFail($id);
+        $notifica = Notifiche::findOrFail($id_notifica);
 
         // Passiamo i dati alla vista per visualizzarli
         return view('notifiche.show', compact('notifica'));
@@ -64,10 +64,10 @@ class NotificheController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit($id_notifica)
     {
         // Recuperiamo la notifica da modificare
-        $notifica = Notifiche::findOrFail($id);
+        $notifica = Notifiche::findOrFail($id_notifica);
 
         // Mostriamo il modulo di modifica della notifica
         return view('notifiche.edit', compact('notifica'));
@@ -76,7 +76,7 @@ class NotificheController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_notifica)
     {
         // Validiamo i dati del form
         $request->validate([
@@ -85,7 +85,7 @@ class NotificheController extends Controller
         ]);
 
         // Recuperiamo la notifica da aggiornare
-        $notifica = Notifiche::findOrFail($id);
+        $notifica = Notifiche::findOrFail($id_notifica);
 
         // Aggiorniamo la notifica con i dati ricevuti
         $notifica->update([
@@ -100,10 +100,10 @@ class NotificheController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy($id_notifica)
     {
         // Recuperiamo la notifica da eliminare
-        $notifica = Notifiche::findOrFail($id);
+        $notifica = Notifiche::findOrFail($id_notifica);
 
         // Eliminiamo la notifica dal database
         $notifica->delete();

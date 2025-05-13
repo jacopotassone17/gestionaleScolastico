@@ -41,7 +41,7 @@
         </div>
     </form>
 
-    @if($Notifiche ?? false)
+    @if($Notifica ?? false)
         <h3 class="text-xl font-bold mb-4">Risultati Notifiche</h3>
 
         <div class="overflow-x-auto">
@@ -55,7 +55,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($Notifiche as $item)
+                    @forelse ($Notifica as $item)
                         <tr>
                             <td class="border border-gray-300 px-4 py-2">{{ $item->studente->name ?? 'N/A' }}</td>
                             <td class="border border-gray-300 px-4 py-2">{{ $item->materia }}</td>

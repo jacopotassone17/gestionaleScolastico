@@ -108,7 +108,7 @@ class TeacherController extends Controller
      */
     public function destroy($id)
     {
-        $docente = Teacher::findOrFail($id);
+        $docente = Teacher::findOrFail($id_professore);
         $docente->delete();
         return redirect()->route('docenti.index')->with('success', 'Professore eliminato con successo!');
     }

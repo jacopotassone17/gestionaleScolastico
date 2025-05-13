@@ -15,7 +15,7 @@ class Teacher extends Model
 
     // Colonne che possono essere assegnate in massa
     protected $fillable = [
-        'id_utente',
+        'id_user',
         'nome',
         'cognome',
         'materia',

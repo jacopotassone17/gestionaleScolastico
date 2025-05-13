@@ -18,16 +18,28 @@
         </div>
 
         <div class="mb-4">
-            <label for="classe_id" class="block">Classe</label>
-            <select name="classe_id" id="classe_id" class="border p-2 w-full" required>
+            <label for="classe" class="block">Classe</label>
+            <select name="classe" id="classe" class="border p-2 w-full" required>
                 <option value="">Seleziona Classe</option>
-                @foreach ($classi as $classe)
-                    <option value="{{ $classe->id }}">{{ $classe->nome }} {{ $classe->sezione }}</option>
+                @foreach ($classes as $classe)
+                    <option value="{{ $classe->id_classe }}">{{ $classe->nome }} {{ $classe->sezione }}</option>
                 @endforeach
             </select>
         </div>
 
+        <div class="mb-4">
+            <label for="id_notifica" class="block">Notifica</label>
+            <select name="id_notifica" id="id_notifica" class="border p-2 w-full">
+                <option value="">Seleziona Notifica</option>
+                @foreach ($notifications as $notifica)
+                    <option value="{{ $notifica->id_notifica }}">{{ $notifica->contenuto }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        </br> 
         <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Salva</button>
+        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Test Bottone</button>
+
     </form>
 @endsection
-

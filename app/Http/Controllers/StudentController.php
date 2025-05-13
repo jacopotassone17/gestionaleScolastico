@@ -16,10 +16,10 @@ class StudentController extends Controller
     public function index()
     {
         // Recuperiamo tutti gli studenti con le informazioni dell'utente e della classe associata
-        $students = Student::with(['user', 'classe', 'notifica'])->get();
+        $students = Student::with(['user', 'classe', 'notification'])->get();
 
         // Passiamo i dati alla vista per visualizzarli
-        return view('students.index', compact('students'));
+        return view('studenti.index', compact('students'));
     }
 
     /**
@@ -30,10 +30,10 @@ class StudentController extends Controller
         // Recuperiamo tutti gli utenti e le classi per il modulo di creazione
         $users = User::all();
         $classes = Classe::all();
-        $notifications = Notifiche::all();
+        $notifications = Notifiche::all(); // Correzione: usa $notifications invece di $notification
 
         // Mostriamo il modulo per aggiungere un nuovo studente
-        return view('students.create', compact('users', 'classes', 'notifications'));
+        return view('studenti.create', compact('users', 'classes', 'notifications')); // Correzione qui
     }
 
     /**
@@ -60,7 +60,7 @@ class StudentController extends Controller
         ]);
 
         // Reindirizziamo alla lista degli studenti con un messaggio di successo
-        return redirect()->route('students.index')->with('success', 'Studente aggiunto con successo!');
+        return redirect()->route('studenti.index')->with('success', 'Studente aggiunto con successo!');
     }
 
     /**
@@ -72,7 +72,7 @@ class StudentController extends Controller
         $student = Student::with(['user', 'classe', 'notifica'])->findOrFail($id);
 
         // Passiamo i dati alla vista per visualizzarli
-        return view('students.show', compact('student'));
+        return view('studenti.show', compact('student'));
     }
 
     /**
@@ -86,10 +86,10 @@ class StudentController extends Controller
         // Recuperiamo tutti gli utenti, le classi e le notifiche per il modulo di modifica
         $users = User::all();
         $classes = Classe::all();
-        $notifications = Notifiche::all();
+        $notifications = Notifiche::all(); // Correzione: usa $notifications qui
 
         // Mostriamo il modulo di modifica dello studente
-        return view('students.edit', compact('student', 'users', 'classes', 'notifications'));
+        return view('studenti.edit', compact('student', 'users', 'classes', 'notifications')); // Correzione qui
     }
 
     /**
@@ -119,7 +119,7 @@ class StudentController extends Controller
         ]);
 
         // Reindirizziamo alla lista degli studenti con un messaggio di successo
-        return redirect()->route('students.index')->with('success', 'Studente aggiornato con successo!');
+        return redirect()->route('studenti.index')->with('success', 'Studente aggiornato con successo!');
     }
 
     /**
@@ -134,6 +134,6 @@ class StudentController extends Controller
         $student->delete();
 
         // Reindirizziamo alla lista degli studenti con un messaggio di successo
-        return redirect()->route('students.index')->with('success', 'Studente eliminato con successo!');
+        return redirect()->route('studenti.index')->with('success', 'Studente eliminato con successo!');
     }
 }

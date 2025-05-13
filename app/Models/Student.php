@@ -19,7 +19,7 @@ class Student extends Model
         'cognome',
         'classe',
         'id_notifica',
-        'id_utente',
+        'id_user',
     ];
 
     // Relazione con il modello Notifiche
@@ -37,7 +37,7 @@ class Student extends Model
     // Relazione con il modello Classe
     public function classe()
     {
-        return $this->belongsTo(Classe::class, 'classe');
+        return $this->belongsTo(Classe::class, 'classe', 'id_classe');
     }
 
     // Relazione con il modello Grade
